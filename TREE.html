@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<script>
+    $(function() {
+        $( ".card" ).draggable();
+
+    });
+    function appendElemnt(){
+        var card="<div class='card'  style='position: absolute;width: 200px;top: 15%;'>" +
+                "<div class='card-content'>" +
+                "<p><strong>Name :</strong><br></p>" +
+                "<input style='border-bottom: none;' type='text' placeholder='name'><br>" +
+                "<p ><strong>Description:</strong><br></p>" +
+                "<textarea style='border-bottom: none;' type='text' class='materialize-textarea' placeholder='description'></textarea>" +
+                "</div>" +
+                "<div class='card-action'><a class='rem' href='#'>remove</a></div></div>";
+    $("#stock").append(card);
+        $( ".card" ).draggable();
+
+    }
+
+</script>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper" style="border-bottom: ">
+        <a href="#" class="brand-logo center">Family Tree</a>
+    </div>
+</nav>
+<div class="row">
+    <div id="stock" class="col s12 m4 l2">
+        <p></p>
+        <div class="card"  style='position: absolute;width: 200px;top: 15%;'>
+                <div class="card-content">
+                        <p ><strong>NAME :</strong> <br></p>
+                        <input style="border-bottom: none;" type="text" placeholder="name"><br>
+                        <p><strong>Description:</strong><br></p>
+                    <textarea style="border-bottom: none;" class="materialize-textarea" placeholder="description"></textarea>
+                </div>
+                <div class="card-action">
+                    <a class="rem" href="#">remove</a>
+                </div>
+        </div>
+
+    </div>
+    <div class="col s12 m4 l8"><p></p></div>
+    <div class="col s12 m4 l2"><p></p>
+        <a onclick="appendElemnt()" style="position: fixed;" class="waves-effect waves-light btn">ADD</a>
+    </div>
+</div>
+<script>
+    $(".rem").click(function(){
+        $(this).parent().parent().remove();
+    });
+
+    $('#stock').delegate('.rem','click',function(){
+        $(this).parent().parent().remove();
+    });
+
+</script>
+
+</body>
+</html>
